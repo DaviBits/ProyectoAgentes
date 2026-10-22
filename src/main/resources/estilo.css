@@ -1,0 +1,250 @@
+/* =====================================================
+   8-Puzzle Multiagente - Tema Guinda / Arena / Crema
+   ===================================================== */
+
+.root {
+    -color-guinda:        #790D16;
+    -color-guinda-oscuro: #5A0A11;
+    -color-guinda-claro:  #9A2530;
+    -color-arena:         #E4D3B0;
+    -color-arena-oscuro:  #D3BF93;
+    -color-crema:         #F5EFE2;
+    -color-crema-oscuro:  #EDE3CC;
+    -color-azul:          #B0C4D4;
+    -color-azul-oscuro:   #8FA9BC;
+    -color-texto:         #3A2A2C;
+
+    -fx-font-family: "Segoe UI", "Helvetica Neue", "DejaVu Sans", sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: -color-crema;
+
+    /* Colores base de JavaFX: controles que no estilizamos a mano los heredan */
+    -fx-base: -color-arena;
+    -fx-accent: -color-guinda;
+    -fx-focus-color: -color-guinda;
+    -fx-faint-focus-color: transparent;
+}
+
+/* ================= PESTAÑAS ================= */
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: -color-guinda;
+}
+.tab-pane > .tab-header-area {
+    -fx-padding: 8 8 0 8;
+}
+.tab-pane .tab {
+    -fx-background-color: -color-guinda-oscuro;
+    -fx-background-radius: 8 8 0 0;
+    -fx-padding: 7 18 7 18;
+}
+.tab-pane .tab:hover {
+    -fx-background-color: -color-guinda-claro;
+}
+.tab-pane .tab:selected {
+    -fx-background-color: -color-crema;
+}
+.tab-pane .tab .tab-label {
+    -fx-text-fill: -color-crema;
+    -fx-font-weight: bold;
+}
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: -color-guinda;
+}
+.tab-pane > .tab-content-area {
+    -fx-background-color: -color-crema;
+}
+.tab-pane {
+    -fx-focus-color: transparent;
+}
+
+/* ================= ETIQUETAS ================= */
+.label {
+    -fx-text-fill: -color-texto;
+}
+.titulo {
+    -fx-font-family: "Georgia", "DejaVu Serif", serif;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-guinda;
+}
+.subtitulo {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-guinda;
+    -fx-background-color: -color-arena;
+    -fx-background-radius: 16;
+    -fx-padding: 7 16 7 16;
+}
+
+/* ================= BOTONES ================= */
+.button {
+    -fx-background-color: -color-arena;
+    -fx-background-radius: 10;
+    -fx-border-color: -color-guinda;
+    -fx-border-radius: 10;
+    -fx-border-width: 1.2;
+    -fx-text-fill: -color-guinda;
+    -fx-font-weight: bold;
+    -fx-padding: 8 18 8 18;
+    -fx-cursor: hand;
+}
+.button:hover {
+    -fx-background-color: -color-arena-oscuro;
+}
+.button:pressed {
+    -fx-background-color: -color-azul;
+}
+.button:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* Botón principal (Generar / Resolver) */
+.button-success {
+    -fx-background-color: -color-guinda;
+    -fx-border-color: transparent;
+    -fx-text-fill: -color-crema;
+    -fx-effect: dropshadow(gaussian, rgba(121,13,22,0.35), 10, 0.2, 0, 3);
+}
+.button-success:hover {
+    -fx-background-color: -color-guinda-claro;
+}
+.button-success:pressed {
+    -fx-background-color: -color-guinda-oscuro;
+}
+
+/* ================= FICHAS DEL PUZZLE ================= */
+.ficha-puzzle {
+    -fx-background-color: -color-arena;
+    -fx-background-radius: 14;
+    -fx-border-color: -color-guinda;
+    -fx-border-radius: 14;
+    -fx-border-width: 2;
+    -fx-text-fill: -color-guinda;
+    -fx-font-family: "Georgia", "DejaVu Serif", serif;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 6, 0.1, 0, 2);
+}
+.ficha-correcta {
+    -fx-background-color: -color-guinda;
+    -fx-text-fill: -color-crema;
+}
+.ficha-puzzle:hover {
+    -fx-background-color: -color-arena-oscuro;
+}
+.ficha-vacia {
+    -fx-background-color: -color-azul;
+    -fx-background-radius: 14;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-cursor: default;
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.25), 8, 0.2, 0, 2);
+}
+.ficha-vacia:hover {
+    -fx-background-color: -color-azul;
+}
+
+/* ================= COMBOBOX ================= */
+.combo-box-base {
+    -fx-background-color: -color-arena;
+    -fx-background-radius: 8;
+    -fx-border-color: -color-guinda;
+    -fx-border-radius: 8;
+}
+.combo-box-base .arrow {
+    -fx-background-color: -color-guinda;
+}
+.combo-box .list-cell {
+    -fx-text-fill: -color-texto;
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+}
+.combo-box-popup .list-view {
+    -fx-background-color: -color-crema;
+    -fx-border-color: -color-guinda;
+}
+.combo-box-popup .list-view .list-cell {
+    -fx-text-fill: -color-texto;
+    -fx-background-color: -color-crema;
+}
+.combo-box-popup .list-view .list-cell:filled:hover,
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: -color-azul;
+    -fx-text-fill: -color-guinda;
+}
+
+/* ================= TABLA ================= */
+.table-view {
+    -fx-background-color: -color-crema;
+    -fx-background-radius: 8;
+    -fx-border-color: -color-guinda;
+    -fx-border-radius: 8;
+}
+.table-view .column-header-background {
+    -fx-background-color: -color-guinda;
+}
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+    -fx-size: 34;
+    -fx-border-color: transparent transparent transparent rgba(245,239,226,0.25);
+}
+.table-view .column-header .label {
+    -fx-text-fill: -color-crema;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+.table-row-cell {
+    -fx-background-color: -color-crema;
+    -fx-table-cell-border-color: transparent;
+}
+.table-row-cell:odd {
+    -fx-background-color: -color-crema-oscuro;
+}
+.table-row-cell:hover {
+    -fx-background-color: -color-azul;
+}
+.table-row-cell:selected {
+    -fx-background-color: -color-guinda;
+}
+.table-cell {
+    -fx-text-fill: -color-texto;
+    -fx-alignment: CENTER;
+}
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: -color-crema;
+}
+
+/* ================= GRÁFICA ================= */
+.chart-title {
+    -fx-font-family: "Georgia", "DejaVu Serif", serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-guinda;
+}
+.chart-plot-background {
+    -fx-background-color: #FBF8F0;
+}
+.chart-vertical-grid-lines,
+.chart-horizontal-grid-lines {
+    -fx-stroke: rgba(121, 13, 22, 0.12);
+}
+.axis {
+    -fx-tick-label-fill: -color-texto;
+}
+.chart-legend {
+    -fx-background-color: transparent;
+}
+.default-color0.chart-bar {
+    -fx-bar-fill: -color-guinda;
+}
+.default-color1.chart-bar {
+    -fx-bar-fill: -color-azul-oscuro;
+}
+.default-color0.chart-legend-item-symbol {
+    -fx-background-color: -color-guinda;
+}
+.default-color1.chart-legend-item-symbol {
+    -fx-background-color: -color-azul-oscuro;
+}
